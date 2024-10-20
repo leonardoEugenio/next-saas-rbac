@@ -11,12 +11,12 @@
   },
   "eslintConfig": {
     "extends": [
-      "@saas/config/eslint-config/library.js"
+      "@saas/config/eslint-config/library"
     ]
   },
   "prettier": "@saas/prettier",
   "dependencies": {
     "@casl/ability": "^6.7.1",
-    "zod": "^3.22.4"
+    "zod": "^3.23.8"
   }
 }
