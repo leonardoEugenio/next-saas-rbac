@@ -2,16 +2,21 @@
   "name": "@saas/api",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/http/server.ts"
   },
   "dependencies": {
-    "@saas/auth": "workspace:*"
+    "@fastify/cors": "^10.0.2",
+    "@saas/auth": "workspace:*",
+    "fastify": "^5.2.0",
+    "fastify-type-provider-zod": "^4.0.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@saas/eslint-config": "workspace:*",
     "@saas/prettier": "workspace:*",
     "@saas/tsconfig": "workspace:*",
     "@types/node": "^22.7.4",
+    "prisma": "^6.1.0",
     "tsx": "^4.19.1"
   },
   "prettier": "@saas/prettier",
