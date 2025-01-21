@@ -1,4 +1,3 @@
-
 services:
   pg:
     image: bitnami/postgresql:latest
