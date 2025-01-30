@@ -9,5 +9,8 @@ export function getUserPermissions(userId: string, role: Role) {
 
   const ability = defineAbilitiesFor(authUser)
 
+  ability.can = ability.can.bind(ability)
+  ability.cannot = ability.cannot.bind(ability)
+
   return ability
 }
