@@ -11,3 +11,5 @@
 [ ] testar rote put /organizations/:slug
 
 [ ] teste rote delete /shutdown-organizations/:slug
+
+[ ] teste rote patch /organizations/:slug/owner
