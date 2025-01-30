@@ -9,3 +9,5 @@
 [ ] testar rote get /organizations e /organizations/:slug
 
 [ ] testar rote put /organizations/:slug
+
+[ ] teste rote delete /shutdown-organizations/:slug
