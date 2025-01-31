@@ -13,3 +13,7 @@
 [ ] teste rote delete /shutdown-organizations/:slug
 
 [ ] teste rote patch /organizations/:slug/owner
+
+[ ] teste rote post /organizations/:slug/projects
+
+[ ] teste rote delete /organizations/:slug/projects/:projectId
