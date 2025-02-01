@@ -5,7 +5,9 @@
     "dev": "pnpm env:load tsx watch src/http/server.ts",
     "db:migrate": "pnpm env:load prisma migrate dev",
     "db:studio": "pnpm env:load prisma studio",
-    "env:load": "dotenv -e ../../.env --"
+    "env:load": "dotenv -e ../../.env --",
+    "build": "tsup",
+    "start": "node dist/http/server.js"
   },
   "dependencies": {
     "@fastify/cors": "^10.0.2",
@@ -31,6 +33,7 @@
     "@types/node": "^22.7.4",
     "dotenv-cli": "^8.0.0",
     "prisma": "^6.1.0",
+    "tsup": "^8.3.6",
     "tsx": "^4.19.1"
   },
   "prisma": {

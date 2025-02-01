@@ -90,6 +90,6 @@ app.register(deleteProject)
 app.register(getProject)
 app.register(getProjects)
 
-app.listen({ port: env.SERVER_PORT }).then(() => {
+app.listen({ port: env.PORT }).then(() => {
   console.log('HTTP server running!')
 })
