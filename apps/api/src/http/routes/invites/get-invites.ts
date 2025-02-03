@@ -19,10 +19,6 @@ export async function getInvites(app: FastifyInstance) {
           tags: ['invites'],
           summary: 'get all organization invites',
           security: [{ bearerAuth: [] }],
-          body: z.object({
-            email: z.string().email(),
-            role: rolesSchema,
-          }),
           params: z.object({
             slug: z.string(),
           }),
