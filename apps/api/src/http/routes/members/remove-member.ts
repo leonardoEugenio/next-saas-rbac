@@ -23,7 +23,7 @@ export async function removeMember(app: FastifyInstance) {
             memberId: z.string().uuid(),
           }),
           response: {
-            2024: z.null(),
+            204: z.null(),
           },
         },
       },
