@@ -102,6 +102,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      lucide:
+        specifier: ^0.474.0
+        version: 0.474.0
       lucide-react:
         specifier: ^0.474.0
         version: 0.474.0(react@19.0.0)
@@ -3682,6 +3685,10 @@ packages:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
     dependencies:
       react: 19.0.0
+    dev: false
+
+  /lucide@0.474.0:
+    resolution: {integrity: sha512-2rfORNh9fzhCUKu0ciE48ogR1Zg7hleABLO5MBF06vOb4esTtE8FbfQJiC+wveiNFoeojWKz6zXheUToRR5uIg==}
     dev: false
 
   /math-intrinsics@1.1.0:
