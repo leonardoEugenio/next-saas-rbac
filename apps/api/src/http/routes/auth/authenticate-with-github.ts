@@ -1,18 +1,18 @@
 import { env } from '@saas/env'
 import type { FastifyInstance } from 'fastify'
-import { ZodTypeProvider } from 'fastify-type-provider-zod'
-import z from 'zod'
+import type { ZodTypeProvider } from 'fastify-type-provider-zod'
+import { z } from 'zod'
 
 import { BadRequestError } from '@/http/_erros/bad-request-error'
 import { prisma } from '@/lib/prisma'
 
-export async function authenticateWithGitHub(app: FastifyInstance) {
+export async function authenticateWithGithub(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
     '/sessions/github',
     {
       schema: {
-        tags: ['auth'],
-        summary: 'Authenticate with Github',
+        tags: ['Auth'],
+        summary: 'Authenticate with GitHub',
         body: z.object({
           code: z.string(),
         }),
@@ -68,21 +68,21 @@ export async function authenticateWithGitHub(app: FastifyInstance) {
 
       const {
         id: githubId,
-        avatar_url: avatarUrl,
-        email,
         name,
+        email,
+        avatar_url: avatarUrl,
       } = z
         .object({
-          id: z.number().int(),
+          id: z.number().int().transform(String),
           avatar_url: z.string().url(),
-          name: z.string(),
+          name: z.string().nullable(),
           email: z.string().nullable(),
         })
         .parse(githubUserData)
 
       if (email === null) {
         throw new BadRequestError(
-          'Your Github account must have an email to authenticate.',
+          'Your GitHub account must have an email to authenticate.',
         )
       }
 
@@ -93,8 +93,8 @@ export async function authenticateWithGitHub(app: FastifyInstance) {
       if (!user) {
         user = await prisma.user.create({
           data: {
-            name,
             email,
+            name,
             avatarUrl,
           },
         })
@@ -113,7 +113,7 @@ export async function authenticateWithGitHub(app: FastifyInstance) {
         account = await prisma.account.create({
           data: {
             provider: 'GITHUB',
-            providerAccountId: String(githubId),
+            providerAccountId: githubId,
             userId: user.id,
           },
         })
@@ -134,6 +134,3 @@ export async function authenticateWithGitHub(app: FastifyInstance) {
     },
   )
 }
-
-// https://github.com/login/oauth/authorize?client_id=Ov23livSZKn3YoG6O4LB&redirect_uri=http://localhost:3000/api/auth/callback&scope=user:email
-// 95a75a9779e7c3e2b2e5
